@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '/commons/database/database.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,9 +10,8 @@ session_start();
 		<title>Gestion des stages</title>
 		<link rel="stylesheet" href="public/css/style.css">
 		<link rel="stylesheet" href="public/css/menu.css">
-		<script src="bower_components/es6-promise/es6-promise.auto.min.js"></script>
-		<script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
-		<link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.5.5/sweetalert2.min.js"></script>
+    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.5.5/sweetalert2.min.css">
 	</head>
 	<body>
 		<div class="header-top">

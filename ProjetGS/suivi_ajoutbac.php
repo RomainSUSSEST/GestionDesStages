@@ -7,36 +7,40 @@
 		<div id="content">
 			<h1>Suivi Scolarité</h1>
 			<div class="left">
-				<h2>Liste des années scolaires</h2>
+				<h2>Liste des BAC</h2>
 				<table>
 					<tr>
-					<th>Année</th>
+					<th>Intitulé</th>
+					<th>Libellé</th>
 					<th>Action</th>
 					</tr>
 					<?php
-						$annee = 'SELECT * FROM annee';
-						$req = $bdd->query($annee);
+						$type_bac = 'SELECT * FROM type_bac';
+						$req = $bdd->query($type_bac);
 
 						while ($row = $req->fetch()) 
 						{
 							echo "<tr>";
-							echo "<td>".$row['date_annee']."</td> <td><a href='#'>Supprimer</a></td>";
+							echo "<td>".$row['id_type_bac']."</td> <td>".$row['lib_typebac']."</td> <td><a href='#'>Supprimer</a></td>";
 							echo "</tr>";
 						};
 					?>
 				</table>
 			</div>
 			<div class="right">
-				<h2>Ajouter une année</h2>
-				<form action="/projetgs/public/php/insert_annee.php" method="GET">
-					<label>Année :</label>
-					<input name="nouvelle_annee" />
+				<h2>Ajouter un nouveau BAC</h2>
+				<form action="/projetgs/public/php/insert_bac.php" method="GET">
+					<label>Intitulé :</label>
+					<input name="nouveau_idbac" />
+					<br>
+					<label>Libellé :</label>
+					<input name="nouveau_libbac" />
 					<br>
 					<button>Ajouter</button>
 				</form>
 			</div>
 		</div>
 	</div>
-<?php
+<?php 
 	include '/view/includes/footer.php';
 ?>

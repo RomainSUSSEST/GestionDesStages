@@ -7,9 +7,17 @@
 		<div id="content">
 			<h1>ELEVE - CLASSE<h1>
 			<br>
-			<h2>Historique des stages :</h2>
+			<h2>Historique des stages</h2>
 			<br>
-			<p>ICI TABLEAU</p>
+			<table>
+					<tr>
+					<th>Année</th>
+					<th>Entreprise</th>
+					<th>Référent Pédagogique</th>
+					<th>Référent Professionnel</th>
+					<th>Détails</th>
+					</tr>
+				</table>
 		</div>
 	</div>
 <?php 

@@ -32,10 +32,10 @@
 						<a href='/projetgs/suivi_eleve.php'>Nouvel El&egrave;ve</a>
 					</div>
 					<div class='wifeo_pagesousmenu'>
-						<a href='http://adressedusite.fr'>Types de BAC</a>
+						<a href='/projetgs/suivi_ajoutbac.php'>Types de BAC</a>
 					</div>
 					<div class='wifeo_pagesousmenu'>
-					<a href='http://adressedusite.fr'>Ann&eacute;es Scolaires</a>
+					<a href='/projetgs/suivi_ajoutannee.php'>Ann&eacute;es Scolaires</a>
 				</div>
 			</div>
 		</div>

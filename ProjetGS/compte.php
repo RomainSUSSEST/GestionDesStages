@@ -5,7 +5,7 @@
 ?>
 	<div class="container">
 		<div id="content">
-		<form>
+		<form method="POST">
 			<label>Changer mon mot de passe :</label>
 			<input name="newmdp" id="newmdp" type="password" />
 			<br>
@@ -32,6 +32,8 @@
 		 
 		if(champ1 == champ2)
 		{
+			document.getElementById("résultat_mdp").style.display = "none";
+
 			document.getElementById("bouton_valider").style.display = "block";
 		}
 		else

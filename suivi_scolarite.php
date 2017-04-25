@@ -33,14 +33,14 @@
 				<h2>Rechercher un élève :</h2>
 				<br>
 				<label>Nom de l'élève :</label>
-				<select>
+				<select name="eleve">
 					<?php
 					$id_eleve = 'SELECT * FROM etudiant_sup';
 					$req = $bdd->query($id_eleve);
 
 					while ($row = $req->fetch()) 
 					{
-						echo "<option value=".$row['nom_etudiant'].$row['prenom_etudiant'].">";
+						echo "<option value=".$row['id_etudiant'].">";
 						echo $row['nom_etudiant']." ".$row['prenom_etudiant'];
 						echo "</option>";
 					};

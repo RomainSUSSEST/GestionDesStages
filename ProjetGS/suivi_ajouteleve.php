@@ -8,30 +8,41 @@
 			<h1>Suivi Scolarité</h1>
 			<h2>Ajouter un élève :</h2>
 			<br>
-			<form action="">
+			<form action="/projetgs/public/php/insert_eleve.php" method="GET">
 				<div class="left">
 					<label>Nom :</label>
-					<input />
+					<input name="nom" />
 					<br>
 					<label>Téléphone :</label>
-					<input />
+					<input name="telephone" />
 					<br>
 					<label>Adresse postale :</label>
-					<textarea></textarea>
+					<input name="postale" />
+					<input name="id" />
 				</div>
 				<div class="right">
 					<label>Prénom :</label>
-					<input />
+					<input name="prenom" />
 					<br>
 					<label>Courriel :</label>
-					<input />
+					<input name="courriel" />
 					<br>
 					<label>Annee obtention BAC :</label>
-					<input />
+					<input name="annee" />
 					<br>
 					<label>Type de BAC</label>
-					<select>
-						<option></option>
+					<select name="type">
+						<?php
+						$type_bac = 'SELECT * FROM type_bac';
+						$req = $bdd->query($type_bac);
+
+						while ($row = $req->fetch()) 
+						{
+							echo "<option value=".$row['id_type_bac'].">";
+							echo $row['id_type_bac'];
+							echo "</option>";
+						};
+						?>
 					</select>
 				</div>
 				<button type="submit">Ajouter</button>

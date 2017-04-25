@@ -7,10 +7,10 @@ $con = new PDO('mysql:host=localhost;dbname=projet_stages', 'root', '');;
 	die($e);
 }
 
-	$annee=$_GET['nouvelle_annee'];
+	$libclasse = $_GET['libclasse'];
 
-	$nouvelle_annee = 'INSERT INTO annee (date_annee) VALUES ('.$annee.')';
-	$req = $bdd->query($nouvelle_annee);
-	
-	header('Location: /projetgs/suivi_ajoutannee.php'); 
+	$nouvelle_classe = 'INSERT INTO classe (id_classe) VALUES ("'.$libclasse.'")';
+	$req = $bdd->query($nouvelle_classe);
+
+	header('Location: /projetgs/suivi_ajoutclasse.php'); 
 ?>

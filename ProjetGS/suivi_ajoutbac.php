@@ -21,7 +21,7 @@
 						while ($row = $req->fetch()) 
 						{
 							echo "<tr>";
-							echo "<td>".$row['id_type_bac']."</td> <td>".$row['lib_typebac']."</td> <td><a href='#'>Supprimer</a></td>";
+							echo "<td>".$row['id_type_bac']."</td> <td>".$row['lib_typebac']."</td> <td><a href='/ProjetGS/public/php/delete_bac.php?id=".$row['id_type_bac']."'>Supprimer</a></td>";
 							echo "</tr>";
 						};
 					?>

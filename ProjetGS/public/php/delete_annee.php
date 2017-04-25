@@ -7,10 +7,10 @@ $con = new PDO('mysql:host=localhost;dbname=projet_stages', 'root', '');;
 	die($e);
 }
 
-	$annee=$_GET['nouvelle_annee'];
-
-	$nouvelle_annee = 'INSERT INTO annee (date_annee) VALUES ('.$annee.')';
-	$req = $bdd->query($nouvelle_annee);
+	$idannee = $_GET['id'];
 	
+	$deleteannee = 'DELETE FROM annee WHERE date_annee = "'.$idannee.'"';
+	$req = $bdd->query($deleteannee);
+
 	header('Location: /projetgs/suivi_ajoutannee.php'); 
 ?>

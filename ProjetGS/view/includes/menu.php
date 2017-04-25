@@ -21,7 +21,7 @@
 					<li>
 						<a href="#">Bienvenue <?php echo $_SESSION['login']; ?> </a>
 						<ul>
-							<li><a href="/projetgs/compte.php">Mon compte</a></li>
+							<li><a href="/projetgs/compte_test.php">Mon compte</a></li>
 							<li><a href="/projetgs/public/php/session_destroy.php">Déconnexion</a></li> 
 						</ul>
 					</li>

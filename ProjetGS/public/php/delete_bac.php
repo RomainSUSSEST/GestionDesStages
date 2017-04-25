@@ -7,10 +7,10 @@ $con = new PDO('mysql:host=localhost;dbname=projet_stages', 'root', '');;
 	die($e);
 }
 
-	$annee=$_GET['nouvelle_annee'];
-
-	$nouvelle_annee = 'INSERT INTO annee (date_annee) VALUES ('.$annee.')';
-	$req = $bdd->query($nouvelle_annee);
+	$idbac = $_GET['id'];
 	
-	header('Location: /projetgs/suivi_ajoutannee.php'); 
+	$deletebac = 'DELETE FROM type_bac WHERE id_type_bac = "'.$idbac.'"';
+	$req = $bdd->query($deletebac);
+
+	header('Location: /projetgs/suivi_ajoutbac.php'); 
 ?>

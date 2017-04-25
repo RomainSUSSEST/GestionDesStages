@@ -7,15 +7,14 @@
 		<div id="content">
 			<h1>Nouvelle Classe</h1>
 			<br>
-			<h2>Ajouter une nouvelle classe :</h2>
-			<br>
-			<label>Libellé :</label>
-			<input />
-			<br>
-			<label>Désignation :</label>
-			<input />
-			<br>
-			<button>Valider</button>
+			<form method="GET" action="/projetgs/public/php/insert_classe.php">
+				<h2>Ajouter une nouvelle classe :</h2>
+				<br>
+				<label>Libellé :</label>
+				<input name="libclasse" />
+				<br>
+				<button>Valider</button>
+			</form>
 		</div>
 	</div>
 <?php 

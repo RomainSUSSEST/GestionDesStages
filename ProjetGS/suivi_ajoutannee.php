@@ -20,7 +20,7 @@
 						while ($row = $req->fetch()) 
 						{
 							echo "<tr>";
-							echo "<td>".$row['date_annee']."</td> <td><a href='#'>Supprimer</a></td>";
+							echo "<td>".$row['date_annee']."</td> <td><a href='/ProjetGS/public/php/delete_annee.php?id=".$row['date_annee']."'>Supprimer</a></td>";
 							echo "</tr>";
 						};
 					?>

@@ -9,6 +9,7 @@
 				<h1>
 					<?php
 					echo $_SESSION['etudiant']." - ".$_SESSION['classe'];
+					$_SESSION['idstage'] = $_GET['stage'];
 					?>
 				</h1>
 				<br>
@@ -23,7 +24,12 @@
 								};
 					?>
 				</p>
-
+				<?php
+				echo "<a href=";
+				echo "stage_ajoutvisite.php?eleve=".$_SESSION['etudiant']." - ".$_SESSION['classe'];
+				echo "><button>Ajouter une visite</button></a>";
+				?>
+				<br>
 				<h2>Visites liées au stage :</h2>
 
 				<?php

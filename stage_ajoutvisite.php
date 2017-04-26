@@ -11,13 +11,16 @@
 				?>
 			</h1>
 			<br>
-			<h2>Ajouter une nouvelle visite :</h2>
-			<br>
-			<form method="POST" action="insert_visiter.php">
+			<form method="POST" action="public/php/insert_visite.php">
+				<h2>Ajouter une nouvelle visite :</h2>
+				<br>
+				<label>IDvisite :</label>
+				<input name="idvisite" />
+				<input type="hidden" name="idstage" value=<?php echo $_SESSION['idstage']; ?>>
 				<label>Date de visite :</label>
-				<input type="text" value="date_visite">
+				<input name="date_visite" />
 				<label>Observations :</label>
-				<textarea value="observations"></textarea>
+				<input name="observations" />
 				<button>Valider</button>
 			</form>
 		</div>

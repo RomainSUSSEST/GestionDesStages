@@ -6,13 +6,27 @@
 	<div class="container">
 		<div id="content">
 			<div class="left">
-				<h1><?php echo $_GET['classe']; ?></h1>
+				<h1>
+				<form>
+				<select name="annee">
+					<?php
+					$id_eleve = 'SELECT * FROM etudiant_sup';
+					$req = $bdd->query($id_eleve);
+
+					while ($row = $req->fetch()) 
+					{
+						echo "<option value=".$row['id_etudiant'].">";
+						echo $row['nom_etudiant']." ".$row['prenom_etudiant'];
+						echo "</option>";
+					};
+					?>
+				</select></h1>
 				<br>
 				<h2>Historique des élèves par année</h2>
 				<br>
 				<?php
-					$annees = 'SELECT * FROM inscrit WHERE id_classe="'.$_GET['classe'].'"';
-					$req = $bdd->query($annees);
+					$classes = 'SELECT * FROM inscrit WHERE id_classe="'.$_GET['classe'].'"';
+					$req = $bdd->query($classes);
 
 					$eleve = 'SELECT nom_etudiant, prenom_etudiant, mail_etudiant, annee_obtention_bac FROM etudiant_sup WHERE id_etudiant = (SELECT id_etudiant FROM inscrit WHERE id_classe="'.$_GET['classe'].'")';
 

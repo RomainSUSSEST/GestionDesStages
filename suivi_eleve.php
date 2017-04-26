@@ -17,6 +17,7 @@
 						};
 			?>
 		</h1>
+		<br>
 		<h2>Informations :</h2>
 			<div class="left">
 				<label>Nom :</label>

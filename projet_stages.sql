@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 26 Avril 2017 à 14:55
+-- Généré le :  Jeu 06 Avril 2017 à 19:06
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -27,18 +27,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `annee` (
-  `date_annee` varchar(25) NOT NULL
+  `date_annee` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `annee`
---
-
-INSERT INTO `annee` (`date_annee`) VALUES
-('2014'),
-('2015'),
-('2016'),
-('2017');
 
 -- --------------------------------------------------------
 
@@ -69,18 +59,10 @@ INSERT INTO `classe` (`id_classe`, `lib_classe`, `designation_classe`) VALUES
 
 CREATE TABLE `entreprise` (
   `id_entreprise` varchar(25) NOT NULL,
-  `adresse_entreprise` varchar(255) DEFAULT NULL,
-  `c_a_entreprise` varchar(25) DEFAULT NULL,
+  `adresse_entreprise` varchar(25) DEFAULT NULL,
+  `chiffre_affaire_entreprise` varchar(25) DEFAULT NULL,
   `id_type` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `entreprise`
---
-
-INSERT INTO `entreprise` (`id_entreprise`, `adresse_entreprise`, `c_a_entreprise`, `id_type`) VALUES
-('Mentalworks', 'IMMEUBLE MILLENIUM ROND POINT J MONNE COMPIEGNE', '', 'Agence Web'),
-('Nodevo', '1 AVENUE DU GENERAL DE GAULLE CHANTILLY', '1 119 600', 'Agence Web');
 
 -- --------------------------------------------------------
 
@@ -89,32 +71,14 @@ INSERT INTO `entreprise` (`id_entreprise`, `adresse_entreprise`, `c_a_entreprise
 --
 
 CREATE TABLE `etudiant_sup` (
-  `id_etudiant` int(255) NOT NULL,
+  `id_etudiant` varchar(25) NOT NULL,
   `nom_etudiant` varchar(25) DEFAULT NULL,
   `prenom_etudiant` varchar(25) DEFAULT NULL,
-  `adresse_etudiant` varchar(255) DEFAULT NULL,
+  `adresse_etudiant` varchar(25) DEFAULT NULL,
   `mail_etudiant` varchar(25) DEFAULT NULL,
   `annee_obtention_bac` varchar(25) DEFAULT NULL,
   `id_type_bac` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `etudiant_sup`
---
-
-INSERT INTO `etudiant_sup` (`id_etudiant`, `nom_etudiant`, `prenom_etudiant`, `adresse_etudiant`, `mail_etudiant`, `annee_obtention_bac`, `id_type_bac`) VALUES
-(1, 'Alaya', 'Hed1', 'senlis', 'hedy@gmail.com', '2013', 'ES'),
-(2, 'Azy', 'Sofiane', 'Nogent-sur-oise', 'sofiane@gmail.com', '2015', 'STI'),
-(3, 'Bourin', 'Antoine', 'Senlis', 'antoine@gmail.com', '2015', 'ES'),
-(4, 'Adnane', 'Aliouate', 'Nogent-sur-oise', 'adnane@gmail.com', '2013', 'ES'),
-(5, 'Duriez', 'Quention', 'quelquepart', 'quention@gmail.com', '2015', 'ES'),
-(6, 'Popik', 'Dylan', 'Senlis', 'dylanp@gmail.com', '2015', 'ES'),
-(7, 'Noaily', 'Dylan', 'Cinqueux', 'dylan@gmail.com', '2015', 'S'),
-(8, 'Cociunu', 'Matthias', 'Roissy', 'matthias@gmail.com', '2015', 'ES'),
-(9, 'Roussel', 'Vincent', 'Senlis', 'vincent@gmail.com', '2015', 'ES'),
-(10, 'Degaugue', 'David', 'Verneuil', 'david@gmail.com', '2015', 'STMG'),
-(11, 'Minart', 'Jean-emile', 'Morcourt', 'j-em@gmail.com', '2015', 'STMG'),
-(13, 'Iguenane', 'MArc', 'Boran', 'marc@gmail.com', '2015', 'ES');
 
 -- --------------------------------------------------------
 
@@ -123,67 +87,35 @@ INSERT INTO `etudiant_sup` (`id_etudiant`, `nom_etudiant`, `prenom_etudiant`, `a
 --
 
 CREATE TABLE `inscrit` (
-  `id_etudiant` int(255) NOT NULL,
-  `date_annee` varchar(25) NOT NULL,
+  `id_etudiant` varchar(25) NOT NULL,
+  `date_annee` date NOT NULL,
   `id_classe` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `inscrit`
---
-
-INSERT INTO `inscrit` (`id_etudiant`, `date_annee`, `id_classe`) VALUES
-(1, '2016', 'BTS1'),
-(2, '2016', 'BTS'),
-(3, '2016', 'BTS'),
-(4, '2016', 'BTS'),
-(5, '2016', 'BTS'),
-(6, '2016', 'BTS'),
-(7, '2016', 'BTS'),
-(8, '2016', 'BTS1'),
-(9, '2016', 'BTS1'),
-(10, '2016', 'BTS1'),
-(11, '2016', 'BTS1'),
-(12, '2016', 'BTS1');
-
 -- --------------------------------------------------------
 
 --
--- Structure de la table `rf_peda`
+-- Structure de la table `ry_peda`
 --
 
-CREATE TABLE `rf_peda` (
-  `id_rf_peda` varchar(25) NOT NULL,
-  `num_port_rf_peda` varchar(25) DEFAULT NULL,
-  `tel_rf_peda` varchar(25) DEFAULT NULL,
-  `mail_rf_peda` varchar(25) DEFAULT NULL
+CREATE TABLE `ry_peda` (
+  `id_ry_peda` varchar(25) NOT NULL,
+  `num_portable_rypeda` varchar(25) DEFAULT NULL,
+  `tel_rypeda` varchar(25) DEFAULT NULL,
+  `mail_rypeda` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `rf_peda`
---
-
-INSERT INTO `rf_peda` (`id_rf_peda`, `num_port_rf_peda`, `tel_rf_peda`, `mail_rf_peda`) VALUES
-('Ammar Fethi', '00 00 00 00 00 ', '00 00 00 00 00', 'fethi.ammar@nodevo.com');
-
 -- --------------------------------------------------------
 
 --
--- Structure de la table `rf_pro`
+-- Structure de la table `ry_pro`
 --
 
-CREATE TABLE `rf_pro` (
-  `id_rf_pro` varchar(25) NOT NULL,
-  `fonction_rf_pro` varchar(25) DEFAULT NULL,
+CREATE TABLE `ry_pro` (
+  `id_ry_pro` varchar(25) NOT NULL,
+  `Fonction` varchar(25) DEFAULT NULL,
   `id_entreprise` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `rf_pro`
---
-
-INSERT INTO `rf_pro` (`id_rf_pro`, `fonction_rf_pro`, `id_entreprise`) VALUES
-('Ammar Fethi', 'PDG ', 'Nodevo');
 
 -- --------------------------------------------------------
 
@@ -192,26 +124,16 @@ INSERT INTO `rf_pro` (`id_rf_pro`, `fonction_rf_pro`, `id_entreprise`) VALUES
 --
 
 CREATE TABLE `stage` (
-  `id_stage` int(255) NOT NULL,
-  `date_deb_stage` varchar(25) DEFAULT NULL,
+  `id_stage` varchar(25) NOT NULL,
+  `datedeb_stage` varchar(25) DEFAULT NULL,
   `date_fin_stage` varchar(25) DEFAULT NULL,
-  `type_stage` varchar(25) DEFAULT NULL,
+  `type_A_S1_S2_` varchar(25) DEFAULT NULL,
   `obsverations_stage` varchar(25) DEFAULT NULL,
   `id_etudiant` varchar(25) DEFAULT NULL,
-  `id_rf_peda` varchar(25) DEFAULT NULL,
+  `id_ry_peda` varchar(25) DEFAULT NULL,
   `id_entreprise` varchar(25) DEFAULT NULL,
-  `id_rf_pro` varchar(25) DEFAULT NULL
+  `id_ry_pro` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `stage`
---
-
-INSERT INTO `stage` (`id_stage`, `date_deb_stage`, `date_fin_stage`, `type_stage`, `obsverations_stage`, `id_etudiant`, `id_rf_peda`, `id_entreprise`, `id_rf_pro`) VALUES
-(1, '29/05', '30/06', '1ère année', '', '1ère année', 'Ammar Fethi', 'Nodevo', 'Fethi Ammar'),
-(2, '29/05', '30/06', '1ère année', '', '1ère année', 'Ammar Fethi', 'Nodevo', 'Fethi Ammar'),
-(3, '29/05', '30/06', '1ère année', '', '1ère année', 'Ammar Fethi', 'Nodevo', 'Fethi Ammar'),
-(4, '29/05', '30/06', '1ère année', '', '1ère année', 'Ammar Fethi', 'Nodevo', 'Fethi Ammar');
 
 -- --------------------------------------------------------
 
@@ -220,22 +142,9 @@ INSERT INTO `stage` (`id_stage`, `date_deb_stage`, `date_fin_stage`, `type_stage
 --
 
 CREATE TABLE `techno` (
-  `Id_techno` int(255) NOT NULL,
+  `Id_techno` varchar(25) NOT NULL,
   `lib_techno` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `techno`
---
-
-INSERT INTO `techno` (`Id_techno`, `lib_techno`) VALUES
-(1, 'Bootstrap'),
-(2, 'C#'),
-(3, 'CSS3'),
-(4, 'JQuery'),
-(5, 'HTML5'),
-(6, 'JavaScript'),
-(7, 'Php');
 
 -- --------------------------------------------------------
 
@@ -244,7 +153,7 @@ INSERT INTO `techno` (`Id_techno`, `lib_techno`) VALUES
 --
 
 CREATE TABLE `type` (
-  `id_type` int(255) NOT NULL,
+  `id_type` varchar(25) NOT NULL,
   `lib_type` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -286,8 +195,7 @@ CREATE TABLE `utilisateur` (
 
 INSERT INTO `utilisateur` (`login`, `mdp`) VALUES
 ('admin', 'admin'),
-('romain', 'romain'),
-('cheff', 'cheff');
+('romain', 'romain');
 
 -- --------------------------------------------------------
 
@@ -307,9 +215,9 @@ CREATE TABLE `utilise` (
 --
 
 CREATE TABLE `visite` (
-  `id_visite` int(255) NOT NULL,
+  `id_visite` varchar(25) NOT NULL,
   `date_visite` varchar(25) DEFAULT NULL,
-  `observation_visite` varchar(25) DEFAULT NULL,
+  `observations_visite` varchar(25) DEFAULT NULL,
   `id_stage` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -335,7 +243,7 @@ ALTER TABLE `classe`
 --
 ALTER TABLE `entreprise`
   ADD PRIMARY KEY (`id_entreprise`),
-  ADD UNIQUE KEY `adresse_entreprise` (`adresse_entreprise`,`c_a_entreprise`),
+  ADD UNIQUE KEY `adresse_entreprise` (`adresse_entreprise`,`chiffre_affaire_entreprise`),
   ADD KEY `FK_Entreprise_id_type` (`id_type`);
 
 --
@@ -355,63 +263,119 @@ ALTER TABLE `inscrit`
   ADD KEY `FK_Inscrit_id_classe` (`id_classe`);
 
 --
+-- Index pour la table `ry_peda`
+--
+ALTER TABLE `ry_peda`
+  ADD PRIMARY KEY (`id_ry_peda`),
+  ADD UNIQUE KEY `num_portable_rypeda` (`num_portable_rypeda`,`tel_rypeda`);
+
+--
+-- Index pour la table `ry_pro`
+--
+ALTER TABLE `ry_pro`
+  ADD PRIMARY KEY (`id_ry_pro`),
+  ADD UNIQUE KEY `Fonction` (`Fonction`),
+  ADD KEY `FK_Ry_Pro_id_entreprise` (`id_entreprise`);
+
+--
 -- Index pour la table `stage`
 --
 ALTER TABLE `stage`
-  ADD PRIMARY KEY (`id_stage`);
+  ADD PRIMARY KEY (`id_stage`),
+  ADD UNIQUE KEY `datedeb_stage` (`datedeb_stage`,`date_fin_stage`,`type_A_S1_S2_`,`obsverations_stage`),
+  ADD KEY `FK_Stage_id_etudiant` (`id_etudiant`),
+  ADD KEY `FK_Stage_id_ry_peda` (`id_ry_peda`),
+  ADD KEY `FK_Stage_id_entreprise` (`id_entreprise`),
+  ADD KEY `FK_Stage_id_ry_pro` (`id_ry_pro`);
 
 --
 -- Index pour la table `techno`
 --
 ALTER TABLE `techno`
-  ADD PRIMARY KEY (`Id_techno`);
+  ADD PRIMARY KEY (`Id_techno`),
+  ADD UNIQUE KEY `lib_techno` (`lib_techno`);
 
 --
 -- Index pour la table `type`
 --
 ALTER TABLE `type`
-  ADD PRIMARY KEY (`id_type`);
+  ADD PRIMARY KEY (`id_type`),
+  ADD UNIQUE KEY `lib_type` (`lib_type`);
+
+--
+-- Index pour la table `type_bac`
+--
+ALTER TABLE `type_bac`
+  ADD PRIMARY KEY (`id_type_bac`),
+  ADD UNIQUE KEY `lib_typebac` (`lib_typebac`);
+
+--
+-- Index pour la table `utilise`
+--
+ALTER TABLE `utilise`
+  ADD PRIMARY KEY (`Id_techno`,`id_stage`),
+  ADD KEY `FK_utilise_id_stage` (`id_stage`);
 
 --
 -- Index pour la table `visite`
 --
 ALTER TABLE `visite`
-  ADD PRIMARY KEY (`id_visite`);
+  ADD PRIMARY KEY (`id_visite`),
+  ADD UNIQUE KEY `date_visite` (`date_visite`,`observations_visite`),
+  ADD KEY `FK_VIsite_id_stage` (`id_stage`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- Contraintes pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT pour la table `etudiant_sup`
+-- Contraintes pour la table `entreprise`
+--
+ALTER TABLE `entreprise`
+  ADD CONSTRAINT `FK_Entreprise_id_type` FOREIGN KEY (`id_type`) REFERENCES `type` (`id_type`);
+
+--
+-- Contraintes pour la table `etudiant_sup`
 --
 ALTER TABLE `etudiant_sup`
-  MODIFY `id_etudiant` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  ADD CONSTRAINT `FK_Etudiant_Sup_id_type_bac` FOREIGN KEY (`id_type_bac`) REFERENCES `type_bac` (`id_type_bac`);
+
 --
--- AUTO_INCREMENT pour la table `inscrit`
+-- Contraintes pour la table `inscrit`
 --
 ALTER TABLE `inscrit`
-  MODIFY `id_etudiant` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  ADD CONSTRAINT `FK_Inscrit_date_annee` FOREIGN KEY (`date_annee`) REFERENCES `annee` (`date_annee`),
+  ADD CONSTRAINT `FK_Inscrit_id_classe` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id_classe`),
+  ADD CONSTRAINT `FK_Inscrit_id_etudiant` FOREIGN KEY (`id_etudiant`) REFERENCES `etudiant_sup` (`id_etudiant`);
+
 --
--- AUTO_INCREMENT pour la table `stage`
+-- Contraintes pour la table `ry_pro`
+--
+ALTER TABLE `ry_pro`
+  ADD CONSTRAINT `FK_Ry_Pro_id_entreprise` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id_entreprise`);
+
+--
+-- Contraintes pour la table `stage`
 --
 ALTER TABLE `stage`
-  MODIFY `id_stage` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  ADD CONSTRAINT `FK_Stage_id_entreprise` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id_entreprise`),
+  ADD CONSTRAINT `FK_Stage_id_etudiant` FOREIGN KEY (`id_etudiant`) REFERENCES `etudiant_sup` (`id_etudiant`),
+  ADD CONSTRAINT `FK_Stage_id_ry_peda` FOREIGN KEY (`id_ry_peda`) REFERENCES `ry_peda` (`id_ry_peda`),
+  ADD CONSTRAINT `FK_Stage_id_ry_pro` FOREIGN KEY (`id_ry_pro`) REFERENCES `ry_pro` (`id_ry_pro`);
+
 --
--- AUTO_INCREMENT pour la table `techno`
+-- Contraintes pour la table `utilise`
 --
-ALTER TABLE `techno`
-  MODIFY `Id_techno` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `utilise`
+  ADD CONSTRAINT `FK_utilise_Id_techno` FOREIGN KEY (`Id_techno`) REFERENCES `techno` (`Id_techno`),
+  ADD CONSTRAINT `FK_utilise_id_stage` FOREIGN KEY (`id_stage`) REFERENCES `stage` (`id_stage`);
+
 --
--- AUTO_INCREMENT pour la table `type`
---
-ALTER TABLE `type`
-  MODIFY `id_type` int(255) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `visite`
+-- Contraintes pour la table `visite`
 --
 ALTER TABLE `visite`
-  MODIFY `id_visite` int(255) NOT NULL AUTO_INCREMENT;
+  ADD CONSTRAINT `FK_VIsite_id_stage` FOREIGN KEY (`id_stage`) REFERENCES `stage` (`id_stage`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

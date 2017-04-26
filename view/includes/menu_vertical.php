@@ -26,10 +26,10 @@
 			<a href='/projetgs/suivi_scolarite.php'>Suivi scolarit&eacute;</a>
 				<div class='wifeo_sousmenu'>
 					<div class='wifeo_pagesousmenu'>
-						<a href='/projetgs/suivi_classe.php'>Nouvelle Classe</a>
+						<a href='/projetgs/suivi_ajoutclasse.php'>Nouvelle Classe</a>
 					</div>
 					<div class='wifeo_pagesousmenu'>
-						<a href='/projetgs/suivi_eleve.php'>Nouvel El&egrave;ve</a>
+						<a href='/projetgs/suivi_ajouteleve.php'>Nouvel El&egrave;ve</a>
 					</div>
 					<div class='wifeo_pagesousmenu'>
 						<a href='/projetgs/suivi_ajoutbac.php'>Types de BAC</a>

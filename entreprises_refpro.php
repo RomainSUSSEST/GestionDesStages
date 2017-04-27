@@ -5,17 +5,24 @@
 ?>
 	<div class="container">
 		<div id="content">
-		<form>
-			<h1>Entreprises</h1>
+		<form method="POST" action="public/php/insert_ref_pro.php">
+			<h1>
+				<?php
+					echo $_SESSION['id_entreprise'];
+				?>
+			</h1>
 			<br>
 			<h2>Ajouter un référent professionel :</h2>
 			<br>
 			<label>Nom du référent :</label>
-			<input />
+			<input type="text" name="nom_referent_pro">
 			<br>
 			<label>Fonction</label>
-			<select>
-				<option></option>
+			<select name="fonction_referent_pro">
+				<option>PDG</option>
+				<option>Chef de projet</option>
+				<option>Directeur service informatique</option>
+				<option>Salarié</option>
 			</select>
 			<br>
 			<button type="submit">Valider</button>

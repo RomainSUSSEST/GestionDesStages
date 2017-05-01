@@ -11,15 +11,15 @@
 				<h2>Rechercher une entreprise :</h2>
 				<br>
 				<label>Nom de l'entreprise :</label>
-				<select name="id_entreprise">
+				<select name="nom_entreprise">
 				<?php
 						$nom_entreprise = 'SELECT * FROM entreprise';
 						$req = $bdd->query($nom_entreprise);
 
 						while ($row = $req->fetch()) 
 						{
-							echo "<option value='".$row['id_entreprise']."'>";
-							echo $row['id_entreprise'];
+							echo "<option value='".$row['nom_entreprise']."'>";
+							echo $row['nom_entreprise'];
 							echo "</option>";
 						};
 						?>

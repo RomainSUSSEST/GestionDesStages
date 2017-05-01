@@ -15,9 +15,9 @@
 
 		$nouvelle_entreprise = 'INSERT INTO entreprise(id_entreprise, adresse_entreprise, c_a_entreprise, id_type) VALUES ("'.$nom_entreprise.'","'.$adresse_entreprise.'","'.$ca_entreprise.'","'.$type.'")';
 		$req = $bdd->query($nouvelle_entreprise);
-		$_SESSION['id_entreprise'] = $nom_entreprise;
+		$_SESSION['nom_entreprise'] = $nom_entreprise;
 		$_SESSION['adresse_entreprise'] = $adresse_entreprise;
-		$_SESSION['ca_entreprise'] = $ca_entreprise;
+		$_SESSION['caentreprise'] = $ca_entreprise;
 
 
 		header('Location: /projetgs/entreprises_informations.php'); 

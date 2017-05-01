@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 27 Avril 2017 à 19:04
+-- Généré le :  Lun 01 Mai 2017 à 08:49
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -77,19 +77,20 @@ CREATE TABLE `entreprise` (
   `adresse_entreprise` varchar(510) DEFAULT NULL,
   `c_a_entreprise` varchar(25) DEFAULT NULL,
   `id_type` varchar(25) DEFAULT NULL,
-  `nom_entreprise` varchar(255) NOT NULL
+  `nom_entreprise` varchar(255) NOT NULL,
+  `tel_entreprise` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `entreprise`
 --
 
-INSERT INTO `entreprise` (`id_entreprise`, `adresse_entreprise`, `c_a_entreprise`, `id_type`, `nom_entreprise`) VALUES
-(1, '1 Avenue du Général de Gaulle 60500 Chantilly', '1119600', '1', 'Nodevo'),
-(2, 'Rue Irène Joliot Curie 60610 La Croix-Saint-Ouen', '1000000', '1', 'Mentalworks'),
-(3, '10 Rue Saint-Laurent 60500 Chantilly', '1450000', '1', 'Mozart du web'),
-(4, '249 Rue Irene Joliot Curie 60610 La Croix-Saint-Ouen', '756000', '1', 'WebexpR'),
-(5, '1 Rue Jeanne d\'Arc 60200 Compiègne', '850000', '1', 'Agence web peach');
+INSERT INTO `entreprise` (`id_entreprise`, `adresse_entreprise`, `c_a_entreprise`, `id_type`, `nom_entreprise`, `tel_entreprise`) VALUES
+(1, '1 Avenue du Général de Gaulle 60500 Chantilly', '1119600', '1', 'Nodevo', 125358964),
+(2, 'Rue Irène Joliot Curie 60610 La Croix-Saint-Ouen', '1000000', '1', 'Mentalworks', 0),
+(3, '10 Rue Saint-Laurent 60500 Chantilly', '1450000', '1', 'Mozart du web', 0),
+(4, '249 Rue Irene Joliot Curie 60610 La Croix-Saint-Ouen', '756000', '1', 'WebexpR', 0),
+(5, '1 Rue Jeanne d\'Arc 60200 Compiègne', '850000', '1', 'Agence web peach', 0);
 
 -- --------------------------------------------------------
 
@@ -485,17 +486,17 @@ ALTER TABLE `entreprise`
 -- AUTO_INCREMENT pour la table `etudiant_sup`
 --
 ALTER TABLE `etudiant_sup`
-  MODIFY `id_etudiant` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_etudiant` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `inscrit`
 --
 ALTER TABLE `inscrit`
-  MODIFY `id_etudiant` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_etudiant` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `rf_peda`
 --
 ALTER TABLE `rf_peda`
-  MODIFY `id_rf_peda` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_rf_peda` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `rf_pro`
 --
@@ -525,7 +526,7 @@ ALTER TABLE `type_bac`
 -- AUTO_INCREMENT pour la table `visite`
 --
 ALTER TABLE `visite`
-  MODIFY `id_visite` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_visite` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

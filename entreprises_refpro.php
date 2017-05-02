@@ -8,7 +8,7 @@
 		<form method="POST" action="public/php/insert_ref_pro.php">
 			<h1>
 				<?php
-					echo $_SESSION['id_entreprise'];
+					echo $_SESSION['nom_entreprise'];
 				?>
 			</h1>
 			<br>

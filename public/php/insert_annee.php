@@ -8,12 +8,9 @@ $con = new PDO('mysql:host=localhost;dbname=projet_stages', 'root', '');;
 }
 
 	$annee=$_GET['nouvelle_annee'];
-	$regexAnnee = '!\d{4}\/\d{4}!';
-	// restriction de la date au format : xxxx/xxxx
-	if(preg_match($regexAnnee, $annee))
-	{
-	$nouvelle_annee = 'INSERT INTO annee (date_annee) VALUES ("'.$annee.'")';
+
+	$nouvelle_annee = 'INSERT INTO annee (date_annee) VALUES ('.$annee.')';
 	$req = $bdd->query($nouvelle_annee);
-	}
-	header('Location: projetgs/suivi_ajoutannee.php'); 
+	
+	header('Location: /projetgs/suivi_ajoutannee.php'); 
 ?>

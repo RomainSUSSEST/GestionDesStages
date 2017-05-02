@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 01 Mai 2017 à 08:49
+-- Généré le :  Mar 02 Mai 2017 à 08:26
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -76,7 +76,7 @@ CREATE TABLE `entreprise` (
   `id_entreprise` int(255) NOT NULL,
   `adresse_entreprise` varchar(510) DEFAULT NULL,
   `c_a_entreprise` varchar(25) DEFAULT NULL,
-  `id_type` varchar(25) DEFAULT NULL,
+  `id_type` int(25) DEFAULT NULL,
   `nom_entreprise` varchar(255) NOT NULL,
   `tel_entreprise` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -86,11 +86,11 @@ CREATE TABLE `entreprise` (
 --
 
 INSERT INTO `entreprise` (`id_entreprise`, `adresse_entreprise`, `c_a_entreprise`, `id_type`, `nom_entreprise`, `tel_entreprise`) VALUES
-(1, '1 Avenue du Général de Gaulle 60500 Chantilly', '1119600', '1', 'Nodevo', 125358964),
-(2, 'Rue Irène Joliot Curie 60610 La Croix-Saint-Ouen', '1000000', '1', 'Mentalworks', 0),
-(3, '10 Rue Saint-Laurent 60500 Chantilly', '1450000', '1', 'Mozart du web', 0),
-(4, '249 Rue Irene Joliot Curie 60610 La Croix-Saint-Ouen', '756000', '1', 'WebexpR', 0),
-(5, '1 Rue Jeanne d\'Arc 60200 Compiègne', '850000', '1', 'Agence web peach', 0);
+(1, '1 Avenue du Général de Gaulle 60500 Chantilly', '1119600', 1, 'Nodevo', 125358964),
+(2, 'Rue Irène Joliot Curie 60610 La Croix-Saint-Ouen', '1000000', 1, 'Mentalworks', 0),
+(3, '10 Rue Saint-Laurent 60500 Chantilly', '1450000', 1, 'Mozart du web', 0),
+(4, '249 Rue Irene Joliot Curie 60610 La Croix-Saint-Ouen', '756000', 1, 'WebexpR', 0),
+(5, '1 Rue Jeanne d\'Arc 60200 Compiègne', '850000', 1, 'Agence web peach', 0);
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE `etudiant_sup` (
   `adresse_etudiant` varchar(255) DEFAULT NULL,
   `mail_etudiant` varchar(25) DEFAULT NULL,
   `annee_obtention_bac` varchar(25) DEFAULT NULL,
-  `id_type_bac` varchar(25) DEFAULT NULL
+  `id_type_bac` int(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -113,15 +113,15 @@ CREATE TABLE `etudiant_sup` (
 --
 
 INSERT INTO `etudiant_sup` (`id_etudiant`, `nom_etudiant`, `prenom_etudiant`, `adresse_etudiant`, `mail_etudiant`, `annee_obtention_bac`, `id_type_bac`) VALUES
-(1, 'Alaya', 'Hedi', 'Senlis', 'hedi.alaya@gmail.com', '2010', '2'),
-(2, 'Azy', 'Sofiane', 'Nogent sur Oise', 'azy;sofiane@gmail.com', '2014', '5'),
-(3, 'Aliouate', 'Adnane', 'Creil', 'adnane.aliouate@gmail.com', '2014', '2'),
-(4, 'Duriez', 'Quentin', 'Boran sur Oise', 'duriez.quentin@gmail.com', '2015', '2'),
-(5, 'Iguenane', 'Marc', 'Boran sur Oise', 'marc.iguenane@gmail.com', '2015', '5'),
-(6, 'Degaugue', 'David', 'Verneuil en Hallate', 'degaugue.david@gmail.com', '2016', '4'),
-(7, 'Sussest', 'Romain', 'Survilliers', 'romain.sussest@gmail.com', '2016', '1'),
-(8, 'Martin', 'Thomas', 'Pontpoint', 'thomas.martin@gmail.com', '2015', '4'),
-(9, 'Minart', 'Jean Emile', 'Morcourt', 'j-em.minart@gmail.com', '2016', '4');
+(1, 'Alaya', 'Hedi', 'Senlis', 'hedi.alaya@gmail.com', '2010', 2),
+(2, 'Azy', 'Sofiane', 'Nogent sur Oise', 'azy;sofiane@gmail.com', '2014', 5),
+(3, 'Aliouate', 'Adnane', 'Creil', 'adnane.aliouate@gmail.com', '2014', 2),
+(4, 'Duriez', 'Quentin', 'Boran sur Oise', 'duriez.quentin@gmail.com', '2015', 2),
+(5, 'Iguenane', 'Marc', 'Boran sur Oise', 'marc.iguenane@gmail.com', '2015', 5),
+(6, 'Degaugue', 'David', 'Verneuil en Hallate', 'degaugue.david@gmail.com', '2016', 4),
+(7, 'Sussest', 'Romain', 'Survilliers', 'romain.sussest@gmail.com', '2016', 1),
+(8, 'Martin', 'Thomas', 'Pontpoint', 'thomas.martin@gmail.com', '2015', 4),
+(9, 'Minart', 'Jean Emile', 'Morcourt', 'j-em.minart@gmail.com', '2016', 4);
 
 -- --------------------------------------------------------
 
@@ -132,7 +132,7 @@ INSERT INTO `etudiant_sup` (`id_etudiant`, `nom_etudiant`, `prenom_etudiant`, `a
 CREATE TABLE `inscrit` (
   `id_etudiant` int(255) NOT NULL,
   `date_annee` varchar(25) NOT NULL,
-  `id_classe` varchar(25) NOT NULL
+  `id_classe` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -140,15 +140,15 @@ CREATE TABLE `inscrit` (
 --
 
 INSERT INTO `inscrit` (`id_etudiant`, `date_annee`, `id_classe`) VALUES
-(1, '2016', '1'),
-(2, '2016', '1'),
-(3, '2016', '1'),
-(4, '2016', '2'),
-(5, '2016', '2'),
-(6, '2016', '3'),
-(7, '2016', '4'),
-(8, '2016', '5'),
-(9, '2016', '3');
+(1, '2016', 1),
+(2, '2016', 1),
+(3, '2016', 1),
+(4, '2016', 2),
+(5, '2016', 2),
+(6, '2016', 3),
+(9, '2016', 3),
+(7, '2016', 4),
+(8, '2016', 5);
 
 -- --------------------------------------------------------
 
@@ -180,7 +180,7 @@ INSERT INTO `rf_peda` (`id_rf_peda`, `num_port_rf_peda`, `tel_rf_peda`, `mail_rf
 CREATE TABLE `rf_pro` (
   `id_rf_pro` int(255) NOT NULL,
   `fonction_rf_pro` varchar(255) DEFAULT NULL,
-  `id_entreprise` varchar(25) DEFAULT NULL,
+  `id_entreprise` int(25) DEFAULT NULL,
   `nom_referent_pro` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -189,11 +189,11 @@ CREATE TABLE `rf_pro` (
 --
 
 INSERT INTO `rf_pro` (`id_rf_pro`, `fonction_rf_pro`, `id_entreprise`, `nom_referent_pro`) VALUES
-(1, 'PDG', '1', 'Fethi Ammar'),
-(2, 'Chef de projet', '2', 'Jeff Jacquelot'),
-(3, 'Directeur service informatique', '3', 'Idasiak Mickael'),
-(4, 'salarie', '4', 'Agnes Kintlzer'),
-(5, 'Chef de projet', '5', 'Jean Bernard Dodemont');
+(1, 'PDG', 1, 'Fethi Ammar'),
+(2, 'Chef de projet', 2, 'Jeff Jacquelot'),
+(3, 'Directeur service informatique', 3, 'Idasiak Mickael'),
+(4, 'salarie', 4, 'Agnes Kintlzer'),
+(5, 'Chef de projet', 5, 'Jean Bernard Dodemont');
 
 -- --------------------------------------------------------
 
@@ -207,10 +207,10 @@ CREATE TABLE `stage` (
   `date_fin_stage` varchar(25) DEFAULT NULL,
   `type_stage` varchar(25) DEFAULT NULL,
   `obsverations_stage` varchar(25) DEFAULT NULL,
-  `id_etudiant` varchar(25) DEFAULT NULL,
-  `id_rf_peda` varchar(25) DEFAULT NULL,
-  `id_entreprise` varchar(25) DEFAULT NULL,
-  `id_rf_pro` varchar(25) DEFAULT NULL
+  `id_etudiant` int(25) DEFAULT NULL,
+  `id_rf_peda` int(25) DEFAULT NULL,
+  `id_entreprise` int(25) DEFAULT NULL,
+  `id_rf_pro` int(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -218,15 +218,15 @@ CREATE TABLE `stage` (
 --
 
 INSERT INTO `stage` (`id_stage`, `date_deb_stage`, `date_fin_stage`, `type_stage`, `obsverations_stage`, `id_etudiant`, `id_rf_peda`, `id_entreprise`, `id_rf_pro`) VALUES
-(1, '29 mai 2017', '30 juin 2017', '1', NULL, '1', '1', '4', '4'),
-(2, '29 mai 2017', '30 juin 2017', '1', NULL, '2', '1', '1', '1'),
-(3, '29 mai 2017', '30 juin 2017', '1', NULL, '3', '1', '3', '3'),
-(4, '29 mai 2017', '30 juin 2017', '1', NULL, '4', '1', '2', '2'),
-(5, '29 mai 2017', '30 juin 2017', '1', NULL, '5', '1', '5', '5'),
-(6, '29 mai 2017', '30 juin 2017', '1', NULL, '6', '1', '1', '1'),
-(7, '29 mai 2017', '30 juin 2017', '1', NULL, '7', '1', '4', '4'),
-(8, '29 mai 2017', '30 juin 2017', '1', NULL, '8', '1', '2', '2'),
-(9, '29 mai 2017', '30 juin 2017', '1', NULL, '9', '1', '3', '3');
+(1, '29 mai 2017', '30 juin 2017', '1', NULL, 1, 1, 4, 4),
+(2, '29 mai 2017', '30 juin 2017', '1', NULL, 2, 1, 1, 1),
+(3, '29 mai 2017', '30 juin 2017', '1', NULL, 3, 1, 3, 3),
+(4, '29 mai 2017', '30 juin 2017', '1', NULL, 4, 1, 2, 2),
+(5, '29 mai 2017', '30 juin 2017', '1', NULL, 5, 1, 5, 5),
+(6, '29 mai 2017', '30 juin 2017', '1', NULL, 6, 1, 1, 1),
+(7, '29 mai 2017', '30 juin 2017', '1', NULL, 7, 1, 4, 4),
+(8, '29 mai 2017', '30 juin 2017', '1', NULL, 8, 1, 2, 2),
+(9, '29 mai 2017', '30 juin 2017', '1', NULL, 9, 1, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -354,7 +354,7 @@ CREATE TABLE `visite` (
   `id_visite` int(255) NOT NULL,
   `date_visite` varchar(25) DEFAULT NULL,
   `observation_visite` varchar(25) DEFAULT NULL,
-  `id_stage` varchar(25) DEFAULT NULL
+  `id_stage` int(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -362,15 +362,15 @@ CREATE TABLE `visite` (
 --
 
 INSERT INTO `visite` (`id_visite`, `date_visite`, `observation_visite`, `id_stage`) VALUES
-(1, '7 juin 2017', NULL, '1'),
-(2, '8 juin 2017', NULL, '2'),
-(3, '9 juin 2017', NULL, '3'),
-(4, '11 juin 2017', NULL, '4'),
-(5, '13 juin 2017', NULL, '5'),
-(6, '13 juin 2017', NULL, '6'),
-(7, '13 juin 2017', NULL, '7'),
-(8, '14 juin 2017', NULL, '8'),
-(9, '17 juin 2017', NULL, '9'),
+(1, '7 juin 2017', NULL, 1),
+(2, '8 juin 2017', NULL, 2),
+(3, '9 juin 2017', NULL, 3),
+(4, '11 juin 2017', NULL, 4),
+(5, '13 juin 2017', NULL, 5),
+(6, '13 juin 2017', NULL, 6),
+(7, '13 juin 2017', NULL, 7),
+(8, '14 juin 2017', NULL, 8),
+(9, '17 juin 2017', NULL, 9),
 (10, NULL, NULL, NULL);
 
 --

@@ -25,12 +25,12 @@
 	 
 	echo '<p>La modification de mot de passe a été prise en compte !<p><br/>';
 	?>
-	<button><a href="/projetgs/compte_test.php">Retour à la page d'accueil !</a></button>
+	<a href="/projetgs/compte_test.php"><button>Retour à la page d'accueil !</button></a>
 	<?php
 	}
 	else{
 	echo'<p>Vous n\'avez pas tapé deux fois le même mot de passe.</p>'?>
-	<button><a href="/projetgs/compte_test.php">Retour</a></button><?php
+	<a href="/projetgs/compte_test.php"><button>Retour</button></a><?php
 	}
 	 
 ?>

@@ -7,54 +7,30 @@
 		<div id="content">
 			<h1>Entreprises :</h1>
 			<div class="left">
-			<form action="public/php/recherche_entreprise.php" method="POST">
+			<form action="entreprises_informations.php" method="GET">
 				<h2>Rechercher une entreprise :</h2>
 				<br>
 				<label>Nom de l'entreprise :</label>
-				<select name="nom_entreprise">
-				<?php
-						$nom_entreprise = 'SELECT * FROM entreprise';
-						$req = $bdd->query($nom_entreprise);
-
-						while ($row = $req->fetch()) 
-						{
-							echo "<option value='".$row['nom_entreprise']."'>";
-							echo $row['nom_entreprise'];
-							echo "</option>";
-						};
-						?>
+				<select>
+					<option>Ajouter Entreprise</option>
 				</select>
 				<br>
 				<button>Rechercher</button>
 			</form>
 			</div>
 			<div class="right">
-			<form action="public/php/insert_entreprise.php" method="POST">
+			<form action="" method="GET">
 				<h2>Nouvelle Entreprise :</h2>
 				<br>
 				<label>Nom de l'entreprise :</label>
-				<input type="text" name="nom_entreprise">
+				<input />
 				<br>
 				<label>Chiffre d'affaires :</label>
-				<input type="number" name="ca_entreprise">
+				<input />
 				<br>
 				<label>Adresse postale :</label>
-				<textarea type="text" name="adresse_entreprise"></textarea>
+				<textarea></textarea>
 				<br>
-				<label>Type d'entreprise</label>
-				<select name="type">
-						<?php
-						$type_bac = 'SELECT * FROM type';
-						$req = $bdd->query($type_bac);
-
-						while ($row = $req->fetch()) 
-						{
-							echo "<option value=".$row['lib_type'].">";
-							echo $row['lib_type'];
-							echo "</option>";
-						};
-						?>
-				</select>
 				<button>Valider</button>
 			</form>
 			</div>

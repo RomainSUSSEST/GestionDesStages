@@ -101,7 +101,7 @@
 			</div>
 			<br>
 			<p>
-				<a href="suivi_classe.php"><button>Associer à une nouvelle classe</button></a>
+				<a href="suivi_associerclasse.php?"><button>Associer à une nouvelle classe</button></a>
 			</p>
 			<br>
 			<h2>Historique des classes :</h2>

@@ -3,6 +3,10 @@ body {
 	background-color: #E3E3E3;
 }
 
+a:link{
+  cursor:  pointer;
+}
+
 .container {
 	width: 1170px;
 	margin: 0 auto;

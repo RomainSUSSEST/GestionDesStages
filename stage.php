@@ -1,4 +1,3 @@
-+
 <?php 
 	include '/view/includes/header.php';
 	include '/view/includes/menu.php';
@@ -49,17 +48,16 @@
 						$la_classe = $_GET['classe'];
 
 						if ($la_classe != "") {
-							$id_etudiant = 'SELECT * FROM etudiant_sup WHERE id_etudiant = (SELECT id_etudiant FROM inscrit WHERE id_classe = "'.$la_classe.'")';
+							$id_etudiant = 'SELECT * FROM etudiant_sup WHERE id_etudiant IN (SELECT id_etudiant FROM inscrit WHERE id_classe = "'.$la_classe.'")';
 							$req = $bdd->query($id_etudiant);
 
 							while ($row = $req->fetch()) 
 							{
-								echo "<option value=".$row['nom_etudiant'].$row['prenom_etudiant'].">";
+								echo "<option value=".$row['id_etudiant'].">";
 								echo $row['nom_etudiant']." ".$row['prenom_etudiant'];
 								echo "</option>";
-								$_SESSION['etudiant'] = $row['nom_etudiant']." ".$row['prenom_etudiant'];
+				
 								$_SESSION['classe'] = $la_classe;
-								$_SESSION['id_etudiant'] = $row['id_etudiant'];
 							};
 						};
 					?>

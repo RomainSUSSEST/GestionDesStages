@@ -7,7 +7,13 @@
 		<div id="content">
 			<h1>
 			<?php
-				echo $_SESSION['etudiant']." - ".$_SESSION['classe'];
+				$etudiant = 'SELECT * FROM etudiant_sup WHERE id_etudiant = '.$_POST['eleve'].'';
+						$req = $bdd->query($etudiant);
+
+						while ($row = $req->fetch()) 
+						{
+							echo $row['nom_etudiant']." ".$row['prenom_etudiant'];
+						};
 			?>
 			</h1>
 			<div class="left">
@@ -23,7 +29,7 @@
 						<th>Détails</th>
 						</tr>
 						<?php
-							$stages = 'SELECT * FROM stage WHERE id_etudiant ='.$_SESSION['id_etudiant'].'';
+							$stages = 'SELECT * FROM stage WHERE id_etudiant ='.$_POST['eleve'].'';
 							$req = $bdd ->query($stages);
 
 							while ($row = $req->fetch()) 

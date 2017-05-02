@@ -19,7 +19,7 @@
 			<br>
 			Associer l'élève à une nouvelle classe :
 			<form method="POST" action=
-			<?php echo "public/php/insert_newclasse.php?eleve=";
+			<?php echo "insert_newclasse.php?eleve=";
 			echo $_SESSION['eleve'];
 			echo "";
 			?>>

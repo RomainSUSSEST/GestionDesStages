@@ -7,11 +7,11 @@
 		<div id="content">
 			<h1>
 				<?php
-					echo $_SESSION['etudiant']." - ".$_SESSION['classe'];
+					echo $_SESSION['nom_etudiant']." ".$_SESSION['prenom_etudiant']." - ".$_SESSION['classe'];
 				?>
 			</h1>
 			<br>
-			<form method="GET" action="insert_stage.php">
+			<form method="POST" action="insert_stage.php">
 				<h2>Nouveau stage :</h2>
 				<br>
 				<label> (Temporaire) ID :</label>
@@ -25,7 +25,7 @@
 
 							while ($row = $req->fetch()) {
 								echo "<option value = ".$row['id_type'].">";
-								echo $row['id_type'];
+								echo $row['lib_type'];
 								echo "</option>";
 							}
 						?>
@@ -39,7 +39,7 @@
 
 							while ($row = $req->fetch()) {
 								echo "<option value = ".$row['id_entreprise'].">";
-								echo $row['id_entreprise'];
+								echo $row['nom_entreprise'];
 								echo "</option>";
 							}
 						?>
@@ -48,12 +48,12 @@
 				<label>Resp. pédagogique :</label>
 					<select name="ref_peda">
 						<?php
-							$rypeda = 'SELECT * FROM ry_peda';
+							$rypeda = 'SELECT * FROM rf_peda';
 							$req = $bdd->query($rypeda);
 
 							while ($row = $req->fetch()) {
 								echo "<option value = ".$row['id_rf_peda'].">";
-								echo $row['id_rf_peda'];
+								echo $row['nom_referent'];
 								echo "</option>";
 							}
 						?>
@@ -62,12 +62,12 @@
 				<label>Resp. technique :</label>
 					<select name="ref_pro">
 						<?php
-							$rypro = 'SELECT * FROM ry_pro';
+							$rypro = 'SELECT * FROM rf_pro';
 							$req = $bdd->query($rypro);
 
 							while ($row = $req->fetch()) {
 								echo "<option value = ".$row['id_rf_pro'].">";
-								echo $row['id_rf_pro'];
+								echo $row['nom_referent_pro'];
 								echo "</option>";
 							}
 						?>
@@ -81,7 +81,7 @@
 
 							while ($row = $req->fetch()) {
 								echo "<option value = ".$row['Id_techno'].">";
-								echo $row['Id_techno'];
+								echo $row['lib_techno'];
 								echo "</option>";
 							}
 						?>
@@ -102,9 +102,9 @@
 					</select>
 				<br>
 				<label>Date début :</label>
-					<input name="date_deb" />
+					<input name="date_deb" type="date">
 				<label>Date fin :</label>
-					<input name="date_fin" />
+					<input name="date_fin" type="date">
 				<br>
 				<input type="submit" value="Ajouter">
 			</form>

@@ -26,14 +26,14 @@
 								if (isset($_GET['classe'])) {
 
 									$select = $_GET['classe'];
-									if($select == $row['id_classe'])
+									if($select == $row['lib_classe'])
 									 	{
 									 		echo " selected";
 									 	};
 								};
 
 							echo ">";
-							echo $row['id_classe'];
+							echo $row['lib_classe'];
 							echo "</option>";
 						};
 						?>
@@ -47,18 +47,18 @@
 					<select name="eleve" id="eleve">
 						<?php
 						$la_classe = $_GET['classe'];
+						
 
 						if ($la_classe != "") {
-							$id_etudiant = 'SELECT * FROM etudiant_sup WHERE id_etudiant = (SELECT id_etudiant FROM inscrit WHERE id_classe = "'.$la_classe.'")';
-							$req = $bdd->query($id_etudiant);
+							$id_etudiant = 'SELECT * FROM etudiant_sup WHERE id_etudiant IN (SELECT id_etudiant FROM inscrit WHERE id_classe = "'.$la_classe.'")';
+							$req = $bdd->query($id_etudiant);	
 
 							while ($row = $req->fetch()) 
 							{
-								echo "<option value=".$row['nom_etudiant'].$row['prenom_etudiant'].">";
+								echo "<option value=".$row['id_etudiant'].">";
 								echo $row['nom_etudiant']." ".$row['prenom_etudiant'];
 								echo "</option>";
-								$_SESSION['etudiant'] = $row['nom_etudiant']." ".$row['prenom_etudiant'];
-								$_SESSION['classe'] = $la_classe;
+								$_SESSION['classe'] = $laclasse;
 								$_SESSION['id_etudiant'] = $row['id_etudiant'];
 							};
 						};

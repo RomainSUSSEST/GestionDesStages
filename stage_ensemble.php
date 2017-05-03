@@ -7,7 +7,22 @@
 		<div id="content">
 			<h1>
 			<?php
-				echo $_SESSION['etudiant']." - ".$_SESSION['classe'];
+				$laclasse='SELECT lib_classe from classe WHERE id_classe = (SELECT id_classe from inscrit where id_etudiant = "'.$_POST['eleve'].'")';
+				$req = $bdd->query($laclasse);
+				while ($row = $req->fetch()) {
+					$laclasse = $row['lib_classe'];
+				}
+
+				$etudiant = 'SELECT nom_etudiant, prenom_etudiant  FROM etudiant_sup where id_etudiant = "'.$_POST['eleve'].'"';
+				$req = $bdd -> query($etudiant);
+
+				while ($row = $req->fetch()) {
+					echo $row['nom_etudiant']." ".$row['prenom_etudiant']." - ".$laclasse;
+					$_SESSION['nom_etudiant'] =$row['nom_etudiant'];
+					$_SESSION['prenom_etudiant'] =$row['prenom_etudiant'];
+				}
+				$_SESSION['classe'] = $laclasse;
+
 			?>
 			</h1>
 			<div class="left">

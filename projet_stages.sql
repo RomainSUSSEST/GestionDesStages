@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 02 Mai 2017 à 08:26
+-- Généré le :  Mer 03 Mai 2017 à 16:21
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -203,30 +203,15 @@ INSERT INTO `rf_pro` (`id_rf_pro`, `fonction_rf_pro`, `id_entreprise`, `nom_refe
 
 CREATE TABLE `stage` (
   `id_stage` int(255) NOT NULL,
-  `date_deb_stage` varchar(25) DEFAULT NULL,
-  `date_fin_stage` varchar(25) DEFAULT NULL,
+  `date_deb_stage` date DEFAULT NULL,
+  `date_fin_stage` date DEFAULT NULL,
   `type_stage` varchar(25) DEFAULT NULL,
-  `obsverations_stage` varchar(25) DEFAULT NULL,
+  `observations_stage` varchar(25) DEFAULT NULL,
   `id_etudiant` int(25) DEFAULT NULL,
   `id_rf_peda` int(25) DEFAULT NULL,
   `id_entreprise` int(25) DEFAULT NULL,
   `id_rf_pro` int(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `stage`
---
-
-INSERT INTO `stage` (`id_stage`, `date_deb_stage`, `date_fin_stage`, `type_stage`, `obsverations_stage`, `id_etudiant`, `id_rf_peda`, `id_entreprise`, `id_rf_pro`) VALUES
-(1, '29 mai 2017', '30 juin 2017', '1', NULL, 1, 1, 4, 4),
-(2, '29 mai 2017', '30 juin 2017', '1', NULL, 2, 1, 1, 1),
-(3, '29 mai 2017', '30 juin 2017', '1', NULL, 3, 1, 3, 3),
-(4, '29 mai 2017', '30 juin 2017', '1', NULL, 4, 1, 2, 2),
-(5, '29 mai 2017', '30 juin 2017', '1', NULL, 5, 1, 5, 5),
-(6, '29 mai 2017', '30 juin 2017', '1', NULL, 6, 1, 1, 1),
-(7, '29 mai 2017', '30 juin 2017', '1', NULL, 7, 1, 4, 4),
-(8, '29 mai 2017', '30 juin 2017', '1', NULL, 8, 1, 2, 2),
-(9, '29 mai 2017', '30 juin 2017', '1', NULL, 9, 1, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -284,19 +269,20 @@ INSERT INTO `type` (`id_type`, `lib_type`) VALUES
 
 CREATE TABLE `type_bac` (
   `id_type_bac` int(255) NOT NULL,
-  `lib_typebac` varchar(25) DEFAULT NULL
+  `lib_typebac` varchar(25) DEFAULT NULL,
+  `intitule_bac` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `type_bac`
 --
 
-INSERT INTO `type_bac` (`id_type_bac`, `lib_typebac`) VALUES
-(1, 'S'),
-(2, 'ES'),
-(3, 'L'),
-(4, 'STMG'),
-(5, 'ST2S');
+INSERT INTO `type_bac` (`id_type_bac`, `lib_typebac`, `intitule_bac`) VALUES
+(1, 'S', 'Scientifiques'),
+(2, 'ES', 'Economique et social'),
+(3, 'L', 'Littéraire'),
+(4, 'STMG', 'Sciences technologie du management et de la gestion'),
+(5, 'ST2S', 'Sciences et technologies de la santé et du social');
 
 -- --------------------------------------------------------
 
@@ -506,7 +492,7 @@ ALTER TABLE `rf_pro`
 -- AUTO_INCREMENT pour la table `stage`
 --
 ALTER TABLE `stage`
-  MODIFY `id_stage` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_stage` int(255) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `techno`
 --
